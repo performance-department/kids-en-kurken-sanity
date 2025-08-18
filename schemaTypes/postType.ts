@@ -36,4 +36,17 @@ export const postType = defineType({
       hidden: true,
     }),
   ],
+
+  orderings: [
+    {
+      title: 'Date (newest first)',
+      name: 'dateDesc',
+      by: [{field: 'date', direction: 'desc'}],
+    },
+    {
+      title: 'Date (oldest first)',
+      name: 'dateAsc',
+      by: [{field: 'date', direction: 'asc'}],
+    },
+  ],
 })
