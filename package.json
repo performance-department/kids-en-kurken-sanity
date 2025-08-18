@@ -17,6 +17,7 @@
   "dependencies": {
     "@sanity/document-internationalization": "^4.0.0",
     "@sanity/icons": "^3.7.4",
+    "@sanity/uuid": "^3.0.2",
     "@sanity/vision": "^4.4.1",
     "react": "^19.1",
     "react-dom": "^19.1",

@@ -1,3 +1,4 @@
+import {uuid} from '@sanity/uuid'
 import {decode} from 'html-entities'
 import type {SanityDocumentLike} from 'sanity'
 import {createOrReplace, defineMigration} from 'sanity/migrate'
@@ -34,6 +35,22 @@ export default defineMigration({
               doc.date = new Date(`${wpDoc.date_gmt}Z`).toISOString()
               doc.language = 'nl'
               doc.sticky = wpDoc.sticky == true
+
+              if (Array.isArray(wpDoc.categories) && wpDoc.categories.length) {
+                doc.categories = wpDoc.categories.map((catId) => ({
+                  _key: uuid(),
+                  _type: 'reference',
+                  _ref: `category-${catId}`,
+                }))
+              }
+
+              if (Array.isArray(wpDoc.tags) && wpDoc.tags.length) {
+                doc.tags = wpDoc.tags.map((tagId) => ({
+                  _key: uuid(),
+                  _type: 'reference',
+                  _ref: `tag-${tagId}`,
+                }))
+              }
             } else if (wpType === 'categories' || wpType === 'tags') {
               wpDoc = wpDoc as WP_REST_API_Term
               doc.name = decode(wpDoc.name).trim()
