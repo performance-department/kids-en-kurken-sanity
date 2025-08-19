@@ -16,7 +16,11 @@ export const postType = defineType({
       hidden: ({document}) => !document?.title,
     }),
     defineField({name: 'date', type: 'datetime', initialValue: () => new Date().toISOString()}),
-    defineField({name: 'content', type: 'array', of: [{type: 'block'}, {type: 'image'}]}),
+    defineField({
+      name: 'content',
+      type: 'array',
+      of: [{type: 'block'}, {type: 'image'}, {type: 'externalImage'}],
+    }),
     defineField({name: 'featuredMedia', type: 'image'}),
     defineField({name: 'sticky', type: 'boolean'}),
     defineField({
