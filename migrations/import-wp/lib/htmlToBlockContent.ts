@@ -12,7 +12,37 @@ import {sanityIdToImageReference} from './sanityIdToImageReference'
 import {sanityUploadFromUrl} from './sanityUploadFromUrl'
 import {wpImageFetch} from './wpImageFetch'
 
-const defaultSchema = Schema.compile({types: schemaTypes})
+import {defineType} from 'sanity'
+
+const intrinsicImageTypes = [
+  defineType({
+    name: 'sanity.imageHotspot',
+    type: 'object',
+    fields: [
+      {name: 'x', type: 'number'},
+      {name: 'y', type: 'number'},
+      {name: 'height', type: 'number'},
+      {name: 'width', type: 'number'},
+    ],
+  }),
+  defineType({
+    name: 'sanity.imageCrop',
+    type: 'object',
+    fields: [
+      {name: 'top', type: 'number'},
+      {name: 'bottom', type: 'number'},
+      {name: 'left', type: 'number'},
+      {name: 'right', type: 'number'},
+    ],
+  }),
+]
+
+// const defaultSchema = Schema.compile({types: schemaTypes})
+
+const defaultSchema = Schema.compile({
+  types: [...schemaTypes, ...intrinsicImageTypes],
+})
+
 const blockContentSchema = defaultSchema
   .get('post')
   .fields.find((field: FieldDefinition) => field.name === 'content').type
