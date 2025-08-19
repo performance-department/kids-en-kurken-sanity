@@ -26,7 +26,7 @@ export const postType = defineType({
       type: 'array',
       of: [{type: 'block'}, {type: 'image'}, {type: 'externalImage'}],
     }),
-    defineField({name: 'featuredMedia', type: 'image'}),
+    defineField({name: 'featuredMedia', title: 'Uitgelichte afbeelding', type: 'image'}),
     defineField({name: 'sticky', type: 'boolean'}),
     defineField({
       name: 'categories',
