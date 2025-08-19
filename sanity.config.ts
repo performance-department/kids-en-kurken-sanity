@@ -5,6 +5,7 @@ import {schemaTypes} from './schemaTypes'
 import {documentInternationalization} from '@sanity/document-internationalization'
 import {structure} from './structure'
 import {media} from 'sanity-plugin-media'
+import {nlNLLocale} from '@sanity/locale-nl-nl'
 
 export default defineConfig({
   name: 'default',
@@ -24,6 +25,7 @@ export default defineConfig({
       ],
       schemaTypes: ['post', 'category', 'tag'],
     }),
+    nlNLLocale(),
   ],
 
   schema: {
@@ -31,13 +33,13 @@ export default defineConfig({
     templates: (prev) => [
       {
         id: 'post-nl',
-        title: 'Post',
+        title: 'Bericht',
         schemaType: 'post',
         value: {language: 'nl'},
       },
       {
         id: 'category-nl',
-        title: 'Category',
+        title: 'Categorie',
         schemaType: 'category',
         value: {language: 'nl'},
       },

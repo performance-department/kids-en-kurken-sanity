@@ -3,10 +3,10 @@ import type {StructureResolver} from 'sanity/structure'
 export const structure: StructureResolver = (S) =>
   S.list()
     .id('root')
-    .title('Content')
+    .title('Menu')
     .items([
-      S.documentTypeListItem('post').title('Posts'),
-      S.documentTypeListItem('category').title('Categories'),
+      S.documentTypeListItem('post').title('Berichten'),
+      S.documentTypeListItem('category').title('Categorieën'),
       S.documentTypeListItem('tag').title('Tags'),
-      S.documentTypeListItem('comment').title('Comments'),
+      S.documentTypeListItem('comment').title('Reacties'),
     ])

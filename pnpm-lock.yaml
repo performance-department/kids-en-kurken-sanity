@@ -17,6 +17,9 @@ importers:
       '@sanity/icons':
         specifier: ^3.7.4
         version: 3.7.4(react@19.1.1)
+      '@sanity/locale-nl-nl':
+        specifier: ^1.1.28
+        version: 1.1.28(sanity@4.5.0(@emotion/is-prop-valid@1.2.2)(@portabletext/sanity-bridge@1.1.2(@sanity/schema@4.5.0(@types/react@19.1.10)(debug@4.4.1))(@sanity/types@4.5.0(@types/react@19.1.10)(debug@4.4.1)))(@types/node@24.3.0)(@types/react@19.1.10)(immer@10.1.1)(jiti@2.5.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(styled-components@6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)(yaml@2.8.1))
       '@sanity/uuid':
         specifier: ^3.0.2
         version: 3.0.2
@@ -1655,6 +1658,11 @@ packages:
       react: ^18 || ^19
       sanity: ^3.36.4 || ^4.0.0-0
       styled-components: ^6.1
+
+  '@sanity/locale-nl-nl@1.1.28':
+    resolution: {integrity: sha512-+gEIYCF63mqboDqYnzUaNXCwNIJwcVxcI0tcpiHCeQaRrXiCqSyrb3iq2NevbgzQPC6LH/qNp55UA3LYs79C7A==}
+    peerDependencies:
+      sanity: ^3.22.0 || ^4.0.0-0
 
   '@sanity/logos@2.2.2':
     resolution: {integrity: sha512-KIWFL7nYEOINXIzaTF9aVhd481hFF/ak+SRnpgksYuJXlo2hbY/UoEJBz6KhsEP5dfO/NwqG82QrkwzLvd6izA==}
@@ -7453,6 +7461,10 @@ snapshots:
       - debug
       - react-dom
       - react-is
+
+  '@sanity/locale-nl-nl@1.1.28(sanity@4.5.0(@emotion/is-prop-valid@1.2.2)(@portabletext/sanity-bridge@1.1.2(@sanity/schema@4.5.0(@types/react@19.1.10)(debug@4.4.1))(@sanity/types@4.5.0(@types/react@19.1.10)(debug@4.4.1)))(@types/node@24.3.0)(@types/react@19.1.10)(immer@10.1.1)(jiti@2.5.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(styled-components@6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)(yaml@2.8.1))':
+    dependencies:
+      sanity: 4.5.0(@emotion/is-prop-valid@1.2.2)(@portabletext/sanity-bridge@1.1.2(@sanity/schema@4.5.0(@types/react@19.1.10)(debug@4.4.1))(@sanity/types@4.5.0(@types/react@19.1.10)(debug@4.4.1)))(@types/node@24.3.0)(@types/react@19.1.10)(immer@10.1.1)(jiti@2.5.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(styled-components@6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(typescript@5.9.2)(yaml@2.8.1)
 
   '@sanity/logos@2.2.2(react@19.1.1)':
     dependencies:

@@ -3,11 +3,11 @@ import {defineField, defineType} from 'sanity'
 
 export const postType = defineType({
   name: 'post',
-  title: 'Post',
+  title: 'Bericht',
   type: 'document',
   icon: ComposeIcon,
   fields: [
-    defineField({name: 'title', type: 'string'}),
+    defineField({name: 'title', title: 'Titel', type: 'string'}),
     defineField({
       name: 'slug',
       type: 'slug',
@@ -15,7 +15,12 @@ export const postType = defineType({
       validation: (rule) => rule.required(),
       hidden: ({document}) => !document?.title,
     }),
-    defineField({name: 'date', type: 'datetime', initialValue: () => new Date().toISOString()}),
+    defineField({
+      name: 'date',
+      title: 'Datum',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+    }),
     defineField({
       name: 'content',
       type: 'array',
@@ -25,6 +30,7 @@ export const postType = defineType({
     defineField({name: 'sticky', type: 'boolean'}),
     defineField({
       name: 'categories',
+      title: 'Categorieën',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'category'}]}],
     }),
@@ -43,12 +49,12 @@ export const postType = defineType({
 
   orderings: [
     {
-      title: 'Date (newest first)',
+      title: 'Datum (nieuwste eerst)',
       name: 'dateDesc',
       by: [{field: 'date', direction: 'desc'}],
     },
     {
-      title: 'Date (oldest first)',
+      title: 'Datum (oudste eerst)',
       name: 'dateAsc',
       by: [{field: 'date', direction: 'asc'}],
     },
