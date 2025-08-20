@@ -1,13 +1,14 @@
 import {createClient} from '@sanity/client'
 import pLimit from 'p-limit'
 import {createOrReplace, defineMigration} from 'sanity/migrate'
-import type {WP_REST_API_Post, WP_REST_API_Term} from 'wp-types'
+import type {WP_REST_API_Comment, WP_REST_API_Post, WP_REST_API_Term} from 'wp-types'
 
 import {getDataTypes} from './lib/getDataTypes'
 import {sanityFetchImages} from './lib/sanityFetchImages'
 import {transformToPost} from './lib/transformToPost'
 import {transformToCategory} from './lib/transformToCategory'
 import {transformToTag} from './lib/transformToTag'
+import {transformToComment} from './lib/transformToComment'
 import {wpDataTypeFetch} from './lib/wpDataTypeFetch'
 
 const limit = pLimit(5)
@@ -29,7 +30,7 @@ export default defineMigration({
 
     while (hasMore) {
       try {
-        let wpData = await wpDataTypeFetch(wpType, page)
+        let wpData = await wpDataTypeFetch(wpType, page, true)
 
         if (Array.isArray(wpData) && wpData.length) {
           // Create an array of concurrency-limited promises to stage documents
@@ -46,6 +47,10 @@ export default defineMigration({
               } else if (wpType === 'tags') {
                 wpDoc = wpDoc as WP_REST_API_Term
                 const doc = await transformToTag(wpDoc)
+                return doc
+              } else if (wpType === 'comments') {
+                wpDoc = wpDoc as WP_REST_API_Comment
+                const doc = await transformToComment(wpDoc)
                 return doc
               }
 

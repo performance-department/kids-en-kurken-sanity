@@ -7,4 +7,5 @@ export const WP_TYPE_TO_SANITY_SCHEMA_TYPE: Record<WordPressDataType, SanitySche
   categories: 'category',
   posts: 'post',
   tags: 'tag',
+  comments: 'comment',
 }

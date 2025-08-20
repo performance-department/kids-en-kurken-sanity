@@ -18,6 +18,10 @@ export async function transformToCategory(wpDoc: WP_REST_API_Term): Promise<Stag
     doc.slug = {_type: 'slug', current: wpDoc.slug}
   }
 
+  if (wpDoc.parent && wpDoc.parent !== 0) {
+    doc.parent = {_type: 'reference', _ref: `category-${wpDoc.parent}`}
+  }
+
   doc.language = 'nl'
 
   return doc

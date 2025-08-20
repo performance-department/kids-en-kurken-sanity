@@ -7,10 +7,38 @@ export const commentType = defineType({
   type: 'document',
   icon: CommentIcon,
   fields: [
-    defineField({name: 'author', type: 'string'}),
-    defineField({name: 'date', type: 'datetime'}),
-    defineField({name: 'content', type: 'array', of: [{type: 'block'}, {type: 'image'}]}),
-    defineField({name: 'post', type: 'reference', to: [{type: 'post'}]}),
-    defineField({name: 'parent', type: 'reference', to: [{type: 'comment'}]}),
+    defineField({
+      name: 'post',
+      type: 'reference',
+      to: [{type: 'post'}],
+      weak: true,
+      readOnly: true,
+    }),
+    defineField({
+      name: 'parent',
+      type: 'reference',
+      to: [{type: 'comment'}],
+      weak: true,
+      readOnly: true,
+    }),
+    defineField({name: 'authorName', title: 'Naam', type: 'string', readOnly: true}),
+    defineField({name: 'authorEmail', title: 'E-mail', type: 'string', readOnly: true}),
+    defineField({name: 'content', type: 'text', rows: 4}),
+    defineField({
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+      initialValue: 'approved',
+      options: {
+        list: [
+          {title: 'Approved', value: 'approved'},
+          {title: 'Pending', value: 'hold'},
+          {title: 'Spam', value: 'spam'},
+          {title: 'Trash', value: 'trash'},
+        ],
+        layout: 'radio',
+      },
+    }),
+    defineField({name: 'date', type: 'datetime', readOnly: true}),
   ],
 })
