@@ -11,7 +11,7 @@ export default defineConfig({
   name: 'default',
   title: 'Kids en Kurken',
 
-  projectId: 'mkiztyqj',
+  projectId: 'xgffjas2',
   dataset: 'production',
 
   plugins: [
