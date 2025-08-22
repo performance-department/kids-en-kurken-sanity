@@ -37,7 +37,7 @@ export const structure: StructureResolver = (S) =>
         .icon(FilterIcon)
         .child(
           S.list()
-            .title('Categorieën per taal')
+            .title('Taal')
             .items([
               S.listItem()
                 .id('nl-categories') // Unique ID added
@@ -63,7 +63,7 @@ export const structure: StructureResolver = (S) =>
         .icon(TagIcon)
         .child(
           S.list()
-            .title('Tags per taal')
+            .title('Taal')
             .items([
               S.listItem()
                 .id('nl-tags') // Unique ID added
