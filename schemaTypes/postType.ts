@@ -11,7 +11,12 @@ export const postType = defineType({
     defineField({
       name: 'slug',
       type: 'slug',
-      options: {source: 'title'},
+      options: {
+        source: 'title',
+        documentInternationalization: {
+          exclude: true,
+        },
+      },
       validation: (rule) => rule.required(),
       hidden: ({document}) => !document?.title,
     }),
@@ -20,6 +25,11 @@ export const postType = defineType({
       title: 'Datum',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
+      options: {
+        documentInternationalization: {
+          exclude: true,
+        },
+      },
     }),
     defineField({
       name: 'content',
@@ -33,11 +43,21 @@ export const postType = defineType({
       title: 'Categorieën',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'category'}]}],
+      options: {
+        documentInternationalization: {
+          exclude: true,
+        },
+      },
     }),
     defineField({
       name: 'tags',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'tag'}]}],
+      options: {
+        documentInternationalization: {
+          exclude: true,
+        },
+      },
     }),
     defineField({
       name: 'language',
