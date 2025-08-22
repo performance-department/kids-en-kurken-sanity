@@ -6,6 +6,7 @@ import {documentInternationalization} from '@sanity/document-internationalizatio
 import {structure} from './structure'
 import {media} from 'sanity-plugin-media'
 import {nlNLLocale} from '@sanity/locale-nl-nl'
+import {assist} from '@sanity/assist'
 
 export default defineConfig({
   name: 'default',
@@ -26,6 +27,14 @@ export default defineConfig({
       schemaTypes: ['post', 'category', 'tag'],
     }),
     nlNLLocale(),
+    assist({
+      translate: {
+        document: {
+          languageField: 'language',
+          documentTypes: ['post', 'category', 'tag'],
+        },
+      },
+    }),
   ],
 
   schema: {
