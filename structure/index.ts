@@ -14,20 +14,24 @@ export const structure: StructureResolver = (S) =>
             .title('Taal')
             .items([
               S.listItem()
-                .id('nl-posts') // Unique ID added
+                .id('nl-posts')
                 .title('🇳🇱')
                 .child(
                   S.documentList()
                     .title('Alle berichten')
-                    .filter('_type == "post" && language == "nl"'),
+                    .filter('_type == "post" && language == "nl"')
+                    .menuItems(S.documentTypeList('post').getMenuItems())
+                    .defaultOrdering([{field: 'date', direction: 'desc'}]),
                 ),
               S.listItem()
-                .id('en-posts') // Unique ID added
+                .id('en-posts')
                 .title('🇬🇧')
                 .child(
                   S.documentList()
                     .title('Alle berichten')
-                    .filter('_type == "post" && language == "en"'),
+                    .filter('_type == "post" && language == "en"')
+                    .menuItems(S.documentTypeList('post').getMenuItems())
+                    .defaultOrdering([{field: 'date', direction: 'desc'}]),
                 ),
             ]),
         ),
@@ -40,7 +44,7 @@ export const structure: StructureResolver = (S) =>
             .title('Taal')
             .items([
               S.listItem()
-                .id('nl-categories') // Unique ID added
+                .id('nl-categories')
                 .title('🇳🇱')
                 .child(
                   S.documentList()
@@ -48,7 +52,7 @@ export const structure: StructureResolver = (S) =>
                     .filter('_type == "category" && language == "nl"'),
                 ),
               S.listItem()
-                .id('en-categories') // Unique ID added
+                .id('en-categories')
                 .title('🇬🇧')
                 .child(
                   S.documentList()
@@ -66,16 +70,16 @@ export const structure: StructureResolver = (S) =>
             .title('Taal')
             .items([
               S.listItem()
-                .id('nl-tags') // Unique ID added
+                .id('nl-tags')
                 .title('🇳🇱')
                 .child(
-                  S.documentList().title('Alle  tags').filter('_type == "tag" && language == "nl"'),
+                  S.documentList().title('Alle tags').filter('_type == "tag" && language == "nl"'),
                 ),
               S.listItem()
-                .id('en-tags') // Unique ID added
+                .id('en-tags')
                 .title('🇬🇧')
                 .child(
-                  S.documentList().title('Alle  tags').filter('_type == "tag" && language == "en"'),
+                  S.documentList().title('Alle tags').filter('_type == "tag" && language == "en"'),
                 ),
             ]),
         ),
