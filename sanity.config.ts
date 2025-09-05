@@ -1,4 +1,5 @@
 import {defineConfig} from 'sanity'
+import {presentationTool} from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
@@ -18,6 +19,15 @@ export default defineConfig({
   plugins: [
     structureTool({structure}),
     visionTool(),
+    presentationTool({
+      previewUrl: {
+        origin: 'https://kidsenkurken.pages.dev',
+        previewMode: {
+          enable: '/preview/enable',
+          disable: '/preview/disable',
+        },
+      },
+    }),
     media(),
     documentInternationalization({
       supportedLanguages: [
