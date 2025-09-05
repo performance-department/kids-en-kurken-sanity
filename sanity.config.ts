@@ -8,6 +8,7 @@ import {structure} from './structure'
 import {media} from 'sanity-plugin-media'
 import {nlNLLocale} from '@sanity/locale-nl-nl'
 import {assist} from '@sanity/assist'
+import {locations, mainDocuments} from './presentation/resolve'
 
 export default defineConfig({
   name: 'default',
@@ -20,6 +21,7 @@ export default defineConfig({
     structureTool({structure}),
     visionTool(),
     presentationTool({
+      resolve: {locations, mainDocuments},
       previewUrl: {
         origin: 'https://kids-en-kurken.vercel.app',
         previewMode: {
