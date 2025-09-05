@@ -21,7 +21,7 @@ export default defineConfig({
     visionTool(),
     presentationTool({
       previewUrl: {
-        origin: 'https://kidsenkurken.pages.dev',
+        origin: 'https://kids-en-kurken.vercel.app',
         previewMode: {
           enable: '/preview/enable',
           disable: '/preview/disable',
