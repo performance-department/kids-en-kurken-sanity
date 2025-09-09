@@ -20,16 +20,16 @@ export default defineConfig({
   plugins: [
     structureTool({structure}),
     visionTool(),
-    presentationTool({
-      resolve: {locations, mainDocuments},
-      previewUrl: {
-        origin: 'https://kids-en-kurken.vercel.app',
-        previewMode: {
-          enable: '/preview/enable',
-          disable: '/preview/disable',
-        },
-      },
-    }),
+    // presentationTool({
+    //   resolve: {locations, mainDocuments},
+    //   previewUrl: {
+    //     origin: 'https://kids-en-kurken.vercel.app',
+    //     previewMode: {
+    //       enable: '/preview/enable',
+    //       disable: '/preview/disable',
+    //     },
+    //   },
+    // }),
     media(),
     documentInternationalization({
       supportedLanguages: [
