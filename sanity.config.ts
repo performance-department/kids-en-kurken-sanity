@@ -42,44 +42,50 @@ export default defineConfig({
     assist({
       translate: {
         styleguide: `
-    TITLE: NL → [Target] Translation & Name Handling
+    TITLE: NL→EN Translation + Name Localization
 
-    GOAL
-    - Fluent, accurate translation.
-    - Names handled safely.
+    SCOPE
+    - Translate to natural English.
+    - Localize Dutch GIVEN NAMES to common English forms, preserving gender.
+    - Never change brands, orgs, products, handles, hashtags, emails, URLs, IDs, or surnames.
 
-    PROPER NOUNS (KEEP)
-    - Real people, brands, orgs, products, handles, hashtags, emails, URLs, IDs.
-    - Surnames unchanged; diacritics preserved.
-    - Places: use common exonym only if standard (e.g., Londen→London); else keep.
+    WHEN TO LOCALIZE A GIVEN NAME
+    - Localize if it appears as a standalone given name in running text (examples, personas, stories).
+    - KEEP EXACTLY if: byline/author credit, quote attribution, full name with surname, staff/customer case studies, tagged person, handle/email.
+    - If uncertain, keep.
 
-    PERSON NAMES
-    1) Default: KEEP given names as written.
-    2) Preserve gender. Never swap female↔male.
-    3) Real vs placeholder:
-       - Real person (byline, quote attribution, staff, customer) → KEEP EXACTLY.
-       - Clearly generic examples (“Jan en Piet…”, “Janneke…”) → MAY adapt to a common target-language equivalent of the SAME GENDER.
-       - If unsure → KEEP.
-    4) Compound names stay compound (Jan-Willem, Anne-Marie). Initials/titles kept; translate generic title words if standard (prof.→Prof.).
+    NEVER DO
+    - Never swap gender.
+    - Never invent a new person.
+    - Never translate surnames or brand names.
 
-    SAFE EQUIVALENTS (ONLY for obvious placeholders)
-    - EN: Jan→John; Johan→John; Pieter→Peter; Willem→William; Johanna→Joanna; Maria→Mary.
-    - DE: Jan→Johann; Pieter→Peter; Willem→Wilhelm.
-    - FR: Jan/Johan→Jean; Pieter→Pierre; Willem→Guillaume; Johanna→Jeanne; Maria→Marie.
-    - ES: Jan/Johan→Juan; Pieter→Pedro; Willem→Guillermo; Johanna→Juana; Maria→María.
-    - KEEP across languages (do not adapt unless author explicitly says it’s a placeholder): Anne, Irene, Laura, Karin, Eva, Jacob.
+    KEEP AS-IS (already common in EN)
+    - Anne, Laura, Irene, Eva, Karin, Emma, Julia, Sara/Sarah, Anna, Lisa, Anouk, Lotte (unless clearly a placeholder → “Lottie” optional).
 
-    DO NOT
-    - Do not fabricate new names.
-    - Do not translate brands/surnames.
-    - Do not change a name if there’s ANY doubt.
+    LOCALIZE MAP (NL → EN, use only for given names without surname or clear placeholders)
+    - Jan → John
+    - Johan → John
+    - Piet / Pieter → Peter
+    - Willem → William
+    - Hendrik → Henry
+    - Henk → Henry
+    - Dirk → Derek
+    - Joost → Justin (only if clearly placeholder; else keep)
+    - Johanna → Joanna
+    - Janneke → Joanna
+    - Hanneke → Hannah
+    - Tineke → Tina   ← important
+    - Sanne → Susanna (if placeholder; else keep)
+    - Anja → Anya
 
     EXAMPLES
-    - “Anne werkt bij Acme.” → “Anne works at Acme.” (unchanged, female)
-    - “Jan en Piet bespreken…” → EN: “John and Peter discuss…” (placeholder)
+    - “Tineke belt later.” → “Tina will call later.”
+    - “Interview met Tineke de Vries” → “Interview with Tineke de Vries” (KEEP: real person + surname)
+    - “Jan en Pieter bespreken…” → “John and Peter discuss…”
+    - “Anne werkt bij Acme.” → “Anne works at Acme.” (KEEP)
 
-    QUALITY CHECK
-    - Re-scan all names: real? keep. placeholder? map same gender. unsure? keep. “Anne” never becomes “John”.
+    QUALITY CHECK (end)
+    - Re-scan all names: if byline/attribution/surname → KEEP. Otherwise, apply map; never change gender. If unsure → KEEP.
     `,
         document: {
           languageField: 'language',
