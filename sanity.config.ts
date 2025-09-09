@@ -42,7 +42,7 @@ export default defineConfig({
     assist({
       translate: {
         styleguide:
-          'Most documents are translated from Dutch. Posts often have Dutch names in the title and body content. Please exchange these Dutch names for typical names in the language you are translating to.',
+          'Most documents are translated from Dutch. Posts often have Dutch names in the title and body content. Please exchange these Dutch names for typical names in the language you are translating to, but do use the correct gender.',
         document: {
           languageField: 'language',
           documentTypes: ['post', 'category', 'tag'],
