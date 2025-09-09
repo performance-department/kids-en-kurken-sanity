@@ -29,7 +29,7 @@ export const postType = defineType({
     defineField({
       name: 'content',
       type: 'array',
-      of: [{type: 'block'}, {type: 'image'}, {type: 'externalImage'}],
+      of: [{type: 'block'}, {type: 'image'}, {type: 'externalImage'}, {type: 'youtube'}],
     }),
     defineField({name: 'featuredMedia', title: 'Uitgelichte afbeelding', type: 'image'}),
     defineField({name: 'sticky', type: 'boolean'}),

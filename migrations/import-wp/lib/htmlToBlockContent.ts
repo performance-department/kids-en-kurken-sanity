@@ -62,6 +62,27 @@ export async function htmlToBlockContent(
           const el = node as HTMLElement
 
           if (node.nodeName.toLowerCase() === 'figure') {
+            // Check for YouTube iframe first
+            const iframe = el.querySelector('iframe')
+            if (iframe) {
+              const src = iframe.getAttribute('src')
+              if (src && src.includes('youtube.com/embed/')) {
+                // Extract YouTube video ID from the embed URL
+                const videoIdMatch = src.match(/youtube\.com\/embed\/([^?&]+)/)
+                if (videoIdMatch) {
+                  const videoId = videoIdMatch[1]
+                  const title = iframe.getAttribute('title') || undefined
+
+                  return block({
+                    _type: 'youtube',
+                    videoId,
+                    title,
+                  })
+                }
+              }
+            }
+
+            // Handle images as before
             const url = el.querySelector('img')?.getAttribute('src')
 
             if (!url) {

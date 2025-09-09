@@ -13,6 +13,12 @@
  */
 
 // Source: schema.json
+export type Youtube = {
+  _type: 'youtube'
+  videoId?: string
+  title?: string
+}
+
 export type ExternalImage = {
   _type: 'externalImage'
   url?: string
@@ -287,6 +293,9 @@ export type Post = {
     | ({
         _key: string
       } & ExternalImage)
+    | ({
+        _key: string
+      } & Youtube)
   >
   featuredMedia?: {
     asset?: {
@@ -452,6 +461,7 @@ export type SanityAssetSourceData = {
 }
 
 export type AllSanitySchemaTypes =
+  | Youtube
   | ExternalImage
   | Comment
   | SanityAssistInstructionTask
