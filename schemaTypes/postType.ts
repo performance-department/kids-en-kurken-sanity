@@ -25,11 +25,6 @@ export const postType = defineType({
       title: 'Datum',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
-      options: {
-        documentInternationalization: {
-          exclude: true,
-        },
-      },
     }),
     defineField({
       name: 'content',
