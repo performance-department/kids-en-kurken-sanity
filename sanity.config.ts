@@ -41,6 +41,8 @@ export default defineConfig({
     nlNLLocale(),
     assist({
       translate: {
+        styleguide:
+          'Most documents are translated from Dutch. Posts often have Dutch names in the title and body content. Please exchange these Dutch names for typical names in the language you are translating to.',
         document: {
           languageField: 'language',
           documentTypes: ['post', 'category', 'tag'],
