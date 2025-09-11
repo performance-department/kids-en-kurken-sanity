@@ -1,5 +1,5 @@
 import type {StructureResolver} from 'sanity/structure'
-import {ComposeIcon, FilterIcon, TagIcon} from '@sanity/icons'
+import {ComposeIcon, FilterIcon, TagIcon, ClockIcon} from '@sanity/icons'
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -84,5 +84,14 @@ export const structure: StructureResolver = (S) =>
             ]),
         ),
       S.divider(),
-      S.documentTypeListItem('commentBucket').title('Reacties'),
+      S.listItem()
+        .title('Te beoordelen reacties')
+        .icon(ClockIcon)
+        .child(
+          S.documentList()
+            .title('Te beoordelen reacties')
+            .filter('_type == "commentBucket" && count(comments[status == "hold"]) > 0')
+            .defaultOrdering([{field: '_updatedAt', direction: 'desc'}]),
+        ),
+      S.documentTypeListItem('commentBucket').title('Alle reacties'),
     ])
