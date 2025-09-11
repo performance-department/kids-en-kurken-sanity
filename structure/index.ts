@@ -31,7 +31,7 @@ export const structure: StructureResolver = (S) =>
                 .child(
                   S.documentList()
                     .title('Alle berichten')
-                    .filter('_type == "post" && language == "nlnl"')
+                    .filter('_type == "post" && language == "nl"')
                     .menuItems(S.documentTypeList('post').getMenuItems())
                     .defaultOrdering([{field: 'date', direction: 'desc'}]),
                 ),
@@ -58,20 +58,20 @@ export const structure: StructureResolver = (S) =>
             .title('Taal')
             .items([
               S.listItem()
-                .id('nl-categoriescategories')
+                .id('nl-categories')
                 .title('🇳🇱')
                 .child(
                   S.documentList()
-                    .title('Alle categorieëncategorieën')
-                    .filter('_type == "categorycategory" && language == "nl"'),
+                    .title('Alle categorieën')
+                    .filter('_type == "category" && language == "nl"'),
                 ),
               S.listItem()
-                .id('en-categoriescategories')
+                .id('en-categories')
                 .title('🇬🇧')
                 .child(
                   S.documentList()
-                    .title('Alle categorieëncategorieën')
-                    .filter('_type == "categorycategory" && language == "en"'),
+                    .title('Alle categorieën')
+                    .filter('_type == "category" && language == "en"'),
                 ),
             ]),
         ),
