@@ -92,11 +92,20 @@ export const commentBucketType = defineType({
             select: {
               authorName: 'authorName',
               content: 'content',
+              status: 'status',
               date: 'date',
             },
-            prepare({authorName, content, date}) {
+            prepare({authorName, content, status, date}) {
+              const statusEmoji =
+                {
+                  approved: '✅',
+                  hold: '⏳',
+                  spam: '🚫',
+                  trash: '🗑️',
+                }[status] || '❓'
+
               return {
-                title: authorName || 'Anonymous',
+                title: `${statusEmoji} ${authorName || 'Anonymous'}`,
                 subtitle: content ? `${content.slice(0, 100)}...` : 'No content',
                 media: CommentIcon,
               }
@@ -121,11 +130,22 @@ export const commentBucketType = defineType({
       postTitle: 'post.title',
       bucketIndex: 'bucketIndex',
       commentCount: 'commentCount',
+      comments: 'comments',
     },
-    prepare({postTitle, bucketIndex, commentCount}) {
+    prepare({postTitle, bucketIndex, commentCount, comments}) {
+      const holdCount = comments?.filter((comment: any) => comment.status === 'hold').length || 0
+      const approvedCount =
+        comments?.filter((comment: any) => comment.status === 'approved').length || 0
+      const spamCount = comments?.filter((comment: any) => comment.status === 'spam').length || 0
+
+      const statusSummary = []
+      if (holdCount > 0) statusSummary.push(`${holdCount} pending`)
+      if (approvedCount > 0) statusSummary.push(`${approvedCount} approved`)
+      if (spamCount > 0) statusSummary.push(`${spamCount} spam`)
+
       return {
         title: `Comments: ${postTitle || 'Unknown Post'}`,
-        subtitle: `Bucket ${bucketIndex} • ${commentCount || 0} comments`,
+        subtitle: `Bucket ${bucketIndex} • ${commentCount || 0} total${statusSummary.length > 0 ? ` (${statusSummary.join(', ')})` : ''}`,
         media: CommentIcon,
       }
     },
