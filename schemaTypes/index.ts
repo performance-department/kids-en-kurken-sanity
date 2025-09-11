@@ -1,5 +1,5 @@
 import {categoryType} from './categoryType'
-import {commentType} from './commentType'
+import {commentBucketType} from './commentBucketType'
 import {postType} from './postType'
 import {tagType} from './tagType'
 import {externalImageType} from './externalImageType'
@@ -9,7 +9,7 @@ export const schemaTypes = [
   postType,
   categoryType,
   tagType,
-  commentType,
+  commentBucketType,
   externalImageType,
   youtubeType,
 ]

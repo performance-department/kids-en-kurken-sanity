@@ -84,5 +84,5 @@ export const structure: StructureResolver = (S) =>
             ]),
         ),
       S.divider(),
-      S.documentTypeListItem('comment').title('Reacties'),
+      S.documentTypeListItem('commentBucket').title('Reacties'),
     ])
