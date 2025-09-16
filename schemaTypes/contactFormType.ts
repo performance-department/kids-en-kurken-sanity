@@ -1,4 +1,4 @@
-import {InboxIcon} from '@sanity/icons'
+import {InboxIcon, EnvelopeIcon, CheckmarkIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 export const contactFormType = defineType({
@@ -52,7 +52,7 @@ export const contactFormType = defineType({
       return {
         title: name || 'Geen naam',
         subtitle: `${email} - ${date}`,
-        media: read ? '✅' : '📬',
+        media: read ? CheckmarkIcon : EnvelopeIcon,
       }
     },
   },
@@ -70,7 +70,10 @@ export const contactFormType = defineType({
     {
       title: 'Ongelezen eerst',
       name: 'unreadFirst',
-      by: [{field: 'read', direction: 'asc'}, {field: 'submittedAt', direction: 'desc'}],
+      by: [
+        {field: 'read', direction: 'asc'},
+        {field: 'submittedAt', direction: 'desc'},
+      ],
     },
   ],
 })

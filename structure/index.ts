@@ -150,11 +150,11 @@ export const structure: StructureResolver = (S) =>
 
       S.listItem()
         .id('contact-forms')
-        .title('Contactformulier inzendingen')
+        .title('Contact')
         .icon(InboxIcon)
         .child(
           S.documentList()
-            .title('Contactformulier inzendingen')
+            .title('Inzendingen')
             .filter('_type == "contactForm"')
             .menuItems(S.documentTypeList('contactForm').getMenuItems())
             .defaultOrdering([{field: 'submittedAt', direction: 'desc'}]),
