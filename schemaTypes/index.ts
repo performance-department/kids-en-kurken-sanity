@@ -1,6 +1,7 @@
 import {categoryType} from './categoryType'
 import {commentBucketType} from './commentBucketType'
 import {contactFormType} from './contactFormType'
+import {bloggerRequestType} from './bloggerRequestType'
 import {postType} from './postType'
 import {tagType} from './tagType'
 import {externalImageType} from './externalImageType'
@@ -13,6 +14,7 @@ export const schemaTypes = [
   tagType,
   commentBucketType,
   contactFormType,
+  bloggerRequestType,
   externalImageType,
   youtubeType,
   pageType,

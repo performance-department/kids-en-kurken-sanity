@@ -7,6 +7,7 @@ import {
   CogIcon,
   DocumentIcon,
   InboxIcon,
+  UserIcon,
 } from '@sanity/icons'
 
 export const structure: StructureResolver = (S) =>
@@ -157,6 +158,18 @@ export const structure: StructureResolver = (S) =>
             .title('Inzendingen')
             .filter('_type == "contactForm"')
             .menuItems(S.documentTypeList('contactForm').getMenuItems())
+            .defaultOrdering([{field: 'submittedAt', direction: 'desc'}]),
+        ),
+
+      S.listItem()
+        .id('blogger-requests')
+        .title('Blogger/influencer aanvragen')
+        .icon(UserIcon)
+        .child(
+          S.documentList()
+            .title('Aanvragen')
+            .filter('_type == "bloggerRequest"')
+            .menuItems(S.documentTypeList('bloggerRequest').getMenuItems())
             .defaultOrdering([{field: 'submittedAt', direction: 'desc'}]),
         ),
     ])
