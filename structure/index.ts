@@ -149,7 +149,14 @@ export const structure: StructureResolver = (S) =>
       S.divider().title('📊 Formulieren'),
 
       S.listItem()
-        .id('forms-placeholder')
-        .title('Binnenkort beschikbaar...')
-        .child(S.list().title('Nog geen formulieren').items([])),
+        .id('contact-forms')
+        .title('Contactformulier inzendingen')
+        .icon(InboxIcon)
+        .child(
+          S.documentList()
+            .title('Contactformulier inzendingen')
+            .filter('_type == "contactForm"')
+            .menuItems(S.documentTypeList('contactForm').getMenuItems())
+            .defaultOrdering([{field: 'submittedAt', direction: 'desc'}]),
+        ),
     ])
