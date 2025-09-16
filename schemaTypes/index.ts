@@ -4,6 +4,7 @@ import {postType} from './postType'
 import {tagType} from './tagType'
 import {externalImageType} from './externalImageType'
 import {youtubeType} from './youtubeType'
+import {pageType} from './pageType'
 
 export const schemaTypes = [
   postType,
@@ -12,4 +13,5 @@ export const schemaTypes = [
   commentBucketType,
   externalImageType,
   youtubeType,
+  pageType,
 ]

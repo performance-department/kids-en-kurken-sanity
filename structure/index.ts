@@ -98,13 +98,36 @@ export const structure: StructureResolver = (S) =>
             ]),
         ),
 
-      // Site Management section
-      S.divider().title('⚙️ Sitebeheer'),
-
       S.listItem()
-        .id('site-management-placeholder')
-        .title('Binnenkort beschikbaar...')
-        .child(S.list().title('Nog geen documenten').items([])),
+        .id('pages')
+        .title("Pagina's")
+        .icon(DocumentIcon)
+        .child(
+          S.list()
+            .title('Taal')
+            .items([
+              S.listItem()
+                .id('nl-pages')
+                .title('🇳🇱')
+                .child(
+                  S.documentList()
+                    .title("Alle pagina's")
+                    .filter('_type == "page" && language == "nl"')
+                    .menuItems(S.documentTypeList('page').getMenuItems())
+                    .defaultOrdering([{field: 'title', direction: 'asc'}]),
+                ),
+              S.listItem()
+                .id('en-pages')
+                .title('🇬🇧')
+                .child(
+                  S.documentList()
+                    .title('All pages')
+                    .filter('_type == "page" && language == "en"')
+                    .menuItems(S.documentTypeList('page').getMenuItems())
+                    .defaultOrdering([{field: 'title', direction: 'asc'}]),
+                ),
+            ]),
+        ),
 
       // Moderation section
 

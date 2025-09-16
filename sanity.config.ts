@@ -1,5 +1,5 @@
 import {defineConfig} from 'sanity'
-import {presentationTool} from 'sanity/presentation'
+// import {presentationTool} from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
@@ -8,7 +8,7 @@ import {structure} from './structure'
 import {media} from 'sanity-plugin-media'
 import {nlNLLocale} from '@sanity/locale-nl-nl'
 import {assist} from '@sanity/assist'
-import {locations, mainDocuments} from './presentation/resolve'
+// import {locations, mainDocuments} from './presentation/resolve'
 
 export default defineConfig({
   name: 'default',
@@ -36,7 +36,7 @@ export default defineConfig({
         {id: 'nl', title: 'Dutch'},
         {id: 'en', title: 'English'},
       ],
-      schemaTypes: ['post', 'category', 'tag'],
+      schemaTypes: ['post', 'category', 'tag', 'page'],
     }),
     nlNLLocale(),
     assist({
@@ -114,6 +114,12 @@ export default defineConfig({
         id: 'tag-nl',
         title: 'Tag',
         schemaType: 'tag',
+        value: {language: 'nl'},
+      },
+      {
+        id: 'page-nl',
+        title: 'Pagina',
+        schemaType: 'page',
         value: {language: 'nl'},
       },
     ],
