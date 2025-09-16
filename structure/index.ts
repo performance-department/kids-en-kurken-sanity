@@ -163,7 +163,7 @@ export const structure: StructureResolver = (S) =>
 
       S.listItem()
         .id('blogger-requests')
-        .title('Blogger/influencer aanvragen')
+        .title('Blogger/influencer')
         .icon(UserIcon)
         .child(
           S.documentList()
