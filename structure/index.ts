@@ -33,6 +33,7 @@ export const structure: StructureResolver = (S) =>
                   S.documentList()
                     .title('Alle berichten')
                     .filter('_type == "post" && language == "nl"')
+                    .apiVersion('2025-09-18')
                     .menuItems(S.documentTypeList('post').getMenuItems())
                     .defaultOrdering([{field: 'date', direction: 'desc'}]),
                 ),
@@ -43,6 +44,7 @@ export const structure: StructureResolver = (S) =>
                   S.documentList()
                     .title('Alle berichten')
                     .filter('_type == "post" && language == "en"')
+                    .apiVersion('2025-09-18')
                     .menuItems(S.documentTypeList('post').getMenuItems())
                     .defaultOrdering([{field: 'date', direction: 'desc'}]),
                 ),
@@ -64,7 +66,8 @@ export const structure: StructureResolver = (S) =>
                 .child(
                   S.documentList()
                     .title('Alle categorieën')
-                    .filter('_type == "category" && language == "nl"'),
+                    .filter('_type == "category" && language == "nl"')
+                    .apiVersion('2025-09-18'),
                 ),
               S.listItem()
                 .id('en-categories')
@@ -72,7 +75,8 @@ export const structure: StructureResolver = (S) =>
                 .child(
                   S.documentList()
                     .title('Alle categorieën')
-                    .filter('_type == "category" && language == "en"'),
+                    .filter('_type == "category" && language == "en"')
+                    .apiVersion('2025-09-18'),
                 ),
             ]),
         ),
@@ -88,13 +92,19 @@ export const structure: StructureResolver = (S) =>
                 .id('nl-tags')
                 .title('🇳🇱')
                 .child(
-                  S.documentList().title('Alle tags').filter('_type == "tag" && language == "nl"'),
+                  S.documentList()
+                    .title('Alle tags')
+                    .filter('_type == "tag" && language == "nl"')
+                    .apiVersion('2025-09-18'),
                 ),
               S.listItem()
                 .id('en-tags')
                 .title('🇬🇧')
                 .child(
-                  S.documentList().title('Alle tags').filter('_type == "tag" && language == "en"'),
+                  S.documentList()
+                    .title('Alle tags')
+                    .filter('_type == "tag" && language == "en"')
+                    .apiVersion('2025-09-18'),
                 ),
             ]),
         ),
@@ -114,6 +124,7 @@ export const structure: StructureResolver = (S) =>
                   S.documentList()
                     .title("Alle pagina's")
                     .filter('_type == "page" && language == "nl"')
+                    .apiVersion('2025-09-18')
                     .menuItems(S.documentTypeList('page').getMenuItems())
                     .defaultOrdering([{field: 'title', direction: 'asc'}]),
                 ),
@@ -124,6 +135,7 @@ export const structure: StructureResolver = (S) =>
                   S.documentList()
                     .title('All pages')
                     .filter('_type == "page" && language == "en"')
+                    .apiVersion('2025-09-18')
                     .menuItems(S.documentTypeList('page').getMenuItems())
                     .defaultOrdering([{field: 'title', direction: 'asc'}]),
                 ),
@@ -142,6 +154,7 @@ export const structure: StructureResolver = (S) =>
           S.documentList()
             .title('Te beoordelen reacties')
             .filter('_type == "commentBucket" && count(comments[status == "hold"]) > 0')
+            .apiVersion('2025-09-18')
             .defaultOrdering([{field: '_updatedAt', direction: 'desc'}]),
         ),
       S.documentTypeListItem('commentBucket').title('Alle reacties'),
@@ -157,6 +170,7 @@ export const structure: StructureResolver = (S) =>
           S.documentList()
             .title('Inzendingen')
             .filter('_type == "contactForm"')
+            .apiVersion('2025-09-18')
             .menuItems(S.documentTypeList('contactForm').getMenuItems())
             .defaultOrdering([{field: 'submittedAt', direction: 'desc'}]),
         ),
@@ -169,6 +183,7 @@ export const structure: StructureResolver = (S) =>
           S.documentList()
             .title('Aanvragen')
             .filter('_type == "bloggerRequest"')
+            .apiVersion('2025-09-18')
             .menuItems(S.documentTypeList('bloggerRequest').getMenuItems())
             .defaultOrdering([{field: 'submittedAt', direction: 'desc'}]),
         ),

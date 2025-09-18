@@ -32,17 +32,4 @@ export const pageType = defineType({
       hidden: true,
     }),
   ],
-
-  orderings: [
-    {
-      title: 'Datum (nieuwste eerst)',
-      name: 'dateDesc',
-      by: [{field: 'date', direction: 'desc'}],
-    },
-    {
-      title: 'Datum (oudste eerst)',
-      name: 'dateAsc',
-      by: [{field: 'date', direction: 'asc'}],
-    },
-  ],
 })
