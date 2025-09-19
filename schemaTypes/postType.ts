@@ -33,6 +33,7 @@ export const postType = defineType({
     }),
     defineField({name: 'featuredMedia', title: 'Uitgelichte afbeelding', type: 'image'}),
     defineField({name: 'sticky', type: 'boolean'}),
+    defineField({name: 'instagram', type: 'boolean', initialValue: false}),
     defineField({
       name: 'categories',
       title: 'Categorieën',
