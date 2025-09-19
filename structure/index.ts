@@ -187,4 +187,17 @@ export const structure: StructureResolver = (S) =>
             .menuItems(S.documentTypeList('bloggerRequest').getMenuItems())
             .defaultOrdering([{field: 'submittedAt', direction: 'desc'}]),
         ),
+
+      S.listItem()
+        .id('submissions')
+        .title('Inzendingen')
+        .icon(DocumentIcon)
+        .child(
+          S.documentList()
+            .title('Inzendingen')
+            .filter('_type == "submission"')
+            .apiVersion('2025-09-18')
+            .menuItems(S.documentTypeList('submission').getMenuItems())
+            .defaultOrdering([{field: 'submittedAt', direction: 'desc'}]),
+        ),
     ])
